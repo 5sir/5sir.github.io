@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="下载,云储存,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[度盘下载器]^(dù pán xià zǎi qì)，第三方百度网盘高速下载工具，采用了Aria 2技术，下载自动切换线路，支持设置超高线程爆速下载。度盘下载器2，也就是 dpdownload 第二代产品，由原作者双霖等人开发，2.0版界面全新设计。 更新了啥？    2018.1.21 v2.2正式版 1.修复了百度修改API导致下载异常的问题。   2.优化了一些细节。  2017.12.1">
+<meta name="keywords" content="下载,云储存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="度盘下载器">
+<meta property="og:url" content="https://5sir.github.io/2017/10/08/度盘下载器/index.html">
+<meta property="og:site_name" content="鄙人梁某">
+<meta property="og:description" content="[度盘下载器]^(dù pán xià zǎi qì)，第三方百度网盘高速下载工具，采用了Aria 2技术，下载自动切换线路，支持设置超高线程爆速下载。度盘下载器2，也就是 dpdownload 第二代产品，由原作者双霖等人开发，2.0版界面全新设计。 更新了啥？    2018.1.21 v2.2正式版 1.修复了百度修改API导致下载异常的问题。   2.优化了一些细节。  2017.12.1">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-05T13:59:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="度盘下载器">
+<meta name="twitter:description" content="[度盘下载器]^(dù pán xià zǎi qì)，第三方百度网盘高速下载工具，采用了Aria 2技术，下载自动切换线路，支持设置超高线程爆速下载。度盘下载器2，也就是 dpdownload 第二代产品，由原作者双霖等人开发，2.0版界面全新设计。 更新了啥？    2018.1.21 v2.2正式版 1.修复了百度修改API导致下载异常的问题。   2.优化了一些细节。  2017.12.1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://5sir.github.io/2017/10/08/度盘下载器/">
+
+
+
+
+
+  <title>度盘下载器 | 鄙人梁某</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鄙人梁某</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">即使从梦中醒来，还会有回忆留下。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://5sir.github.io/2017/10/08/度盘下载器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鄙人梁某">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鄙人梁某">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">度盘下载器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-08T17:40:00+08:00">
+                2017-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/资源技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">资源技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>[度盘下载器]^(dù pán xià zǎi qì)，第三方百度网盘高速下载工具，采用了Aria 2技术，下载自动切换线路，支持设置超高线程爆速下载。度盘下载器2，也就是 dpdownload 第二代产品，由原作者双霖等人开发，2.0版界面全新设计。</strong></p>
+<div class="yellow">更新了啥？</div>
+
+
+<hr>
+<h3 id="2018-1-21-v2-2正式版"><a href="#2018-1-21-v2-2正式版" class="headerlink" title="2018.1.21 v2.2正式版"></a>2018.1.21 v2.2正式版</h3><blockquote>
+<p>1.修复了百度修改API导致下载异常的问题。</p>
+</blockquote>
+<blockquote>
+<p>2.优化了一些细节。</p>
+</blockquote>
+<h3 id="2017-12-17-v2-1-4正式版"><a href="#2017-12-17-v2-1-4正式版" class="headerlink" title="2017.12.17 v2.1.4正式版"></a>2017.12.17 v2.1.4正式版</h3><blockquote>
+<p>1.增加网盘搜索按钮。</p>
+</blockquote>
+<blockquote>
+<p>2.优化了Win10系统的兼容性。</p>
+</blockquote>
+<blockquote>
+<p>3.修复了在win8-win10系统可能出现的一个崩溃问题。</p>
+</blockquote>
+<blockquote>
+<p>4.优化误报问题。</p>
+</blockquote>
+<blockquote>
+<p>5.修复几个用户反馈的问题。</p>
+</blockquote>
+<blockquote>
+<p>6.修复winXP系统无法正常初始化aria2的问题。</p>
+</blockquote>
+<blockquote>
+<p>7.修复其他若干问题。</p>
+</blockquote>
+<h4 id="2017-10-29-v2-1-3正式版"><a href="#2017-10-29-v2-1-3正式版" class="headerlink" title="2017-10-29 v2.1.3正式版"></a>2017-10-29 v2.1.3正式版</h4><blockquote>
+<p>1.撤销了2.1.2.1版本</p>
+</blockquote>
+<blockquote>
+<p>2.修复了文件夹下载后会报错崩溃的问题</p>
+</blockquote>
+<blockquote>
+<p>3.紧急修复下载速度会越来越慢的问题</p>
+</blockquote>
+<blockquote>
+<p>4.修复其他若干偶现BUG。</p>
+</blockquote>
+<h4 id="2017-10-23-v2-1-0-正式版"><a href="#2017-10-23-v2-1-0-正式版" class="headerlink" title="2017-10-23 v2.1.0 正式版"></a>2017-10-23 v2.1.0 正式版</h4><blockquote>
+<p>1.新增文件夹下载</p>
+</blockquote>
+<blockquote>
+<p>2.支持搜索本地网盘的内容</p>
+</blockquote>
+<blockquote>
+<p>3.下载管理界面新增已完成界面</p>
+</blockquote>
+<blockquote>
+<p>4.新增全新启动页</p>
+</blockquote>
+<blockquote>
+<p>5.启动页新增进度显示</p>
+</blockquote>
+<blockquote>
+<p>6.新增返回按钮</p>
+</blockquote>
+<blockquote>
+<p>7.大幅度提升软件的启动速度</p>
+</blockquote>
+<blockquote>
+<p>8.删减大量多余代码，减少臃肿</p>
+</blockquote>
+<blockquote>
+<p>9.软件单文件化</p>
+</blockquote>
+<blockquote>
+<p>10.优化了下载的文件可能会损坏的问题</p>
+</blockquote>
+<blockquote>
+<p>11.优化下载速度</p>
+</blockquote>
+<blockquote>
+<p>12.优化下载过程中的任务信息获取，增加更多提示</p>
+</blockquote>
+<blockquote>
+<p>13.修复了当连续多次获取不同的网盘文件，并且后一次获取的文件数比前一次多，会出现崩溃的问题</p>
+</blockquote>
+<blockquote>
+<p>14.修复了下载界面点击取消按钮可能崩溃的问题</p>
+</blockquote>
+<blockquote>
+<p>15.减少了在特定网络下，软件会出现未响应的问题</p>
+</blockquote>
+<blockquote>
+<p>16.其他若干细节改变 </p>
+</blockquote>
+<h4 id="2017-09-17-v2-0-6-正式版"><a href="#2017-09-17-v2-0-6-正式版" class="headerlink" title="2017-09-17 v2.0.6 正式版"></a>2017-09-17 v2.0.6 正式版</h4><blockquote>
+<p>1.修复了一切已知问题</p>
+</blockquote>
+<blockquote>
+<p>2.增加网盘搜索功能（暂不可用）</p>
+</blockquote>
+<blockquote>
+<p>3.更新下载引擎</p>
+</blockquote>
+<h4 id="2017-08-26-v2-0-5-正式版"><a href="#2017-08-26-v2-0-5-正式版" class="headerlink" title="2017-08-26 v2.0.5 正式版"></a>2017-08-26 v2.0.5 正式版</h4><blockquote>
+<p>1.修复其他若干偶现BUG</p>
+</blockquote>
+<blockquote>
+<p>2.提升启动速度</p>
+</blockquote>
+<h4 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h4><hr>
+<ul>
+<li><strong>蓝奏云</strong>：<a href="http://t.cn/RQQBDqw" title="下载地址" target="_blank" rel="noopener">下载地址</a></li>
+</ul>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/下载/" rel="tag"># 下载</a>
+          
+            <a href="/tags/云储存/" rel="tag"># 云储存</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/05/DNS/" rel="next" title="DNS">
+                <i class="fa fa-chevron-left"></i> DNS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/09/给网站加抖动文字特效/" rel="prev" title="给网站加抖动文字特效">
+                给网站加抖动文字特效 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="鄙人梁某">
+            
+              <p class="site-author-name" itemprop="name">鄙人梁某</p>
+              <p class="site-description motion-element" itemprop="description">即使从梦中醒来，还会有回忆留下。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-1-21-v2-2正式版"><span class="nav-number">1.</span> <span class="nav-text">2018.1.21 v2.2正式版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-12-17-v2-1-4正式版"><span class="nav-number">2.</span> <span class="nav-text">2017.12.17 v2.1.4正式版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2017-10-29-v2-1-3正式版"><span class="nav-number">2.1.</span> <span class="nav-text">2017-10-29 v2.1.3正式版</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2017-10-23-v2-1-0-正式版"><span class="nav-number">2.2.</span> <span class="nav-text">2017-10-23 v2.1.0 正式版</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2017-09-17-v2-0-6-正式版"><span class="nav-number">2.3.</span> <span class="nav-text">2017-09-17 v2.0.6 正式版</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2017-08-26-v2-0-5-正式版"><span class="nav-number">2.4.</span> <span class="nav-text">2017-08-26 v2.0.5 正式版</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载地址"><span class="nav-number">2.5.</span> <span class="nav-text">下载地址</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">鄙人梁某</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

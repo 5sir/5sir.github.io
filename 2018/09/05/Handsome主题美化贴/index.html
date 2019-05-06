@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="handsome,美化,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="首页文章版式圆角化本项修改的是首页文章版式，包括图片使其四个角由方形变成圆角形状。将以下代码添加至后台主题设置 自定义CSS。123456789101112131415#圆角大小可修改15px数值/*首页文章版式圆角化*/.panel&amp;#123;    border: none;    border-radius: 15px;&amp;#125;.panel-small&amp;#123;    border:">
+<meta name="keywords" content="handsome,美化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Handsome主题美化贴">
+<meta property="og:url" content="https://5sir.github.io/2018/09/05/Handsome主题美化贴/index.html">
+<meta property="og:site_name" content="鄙人梁某">
+<meta property="og:description" content="首页文章版式圆角化本项修改的是首页文章版式，包括图片使其四个角由方形变成圆角形状。将以下代码添加至后台主题设置 自定义CSS。123456789101112131415#圆角大小可修改15px数值/*首页文章版式圆角化*/.panel&amp;#123;    border: none;    border-radius: 15px;&amp;#125;.panel-small&amp;#123;    border:">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-05T13:59:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Handsome主题美化贴">
+<meta name="twitter:description" content="首页文章版式圆角化本项修改的是首页文章版式，包括图片使其四个角由方形变成圆角形状。将以下代码添加至后台主题设置 自定义CSS。123456789101112131415#圆角大小可修改15px数值/*首页文章版式圆角化*/.panel&amp;#123;    border: none;    border-radius: 15px;&amp;#125;.panel-small&amp;#123;    border:">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://5sir.github.io/2018/09/05/Handsome主题美化贴/">
+
+
+
+
+
+  <title>Handsome主题美化贴 | 鄙人梁某</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鄙人梁某</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">即使从梦中醒来，还会有回忆留下。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://5sir.github.io/2018/09/05/Handsome主题美化贴/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鄙人梁某">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鄙人梁某">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Handsome主题美化贴</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-05T21:18:00+08:00">
+                2018-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/资源技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">资源技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="首页文章版式圆角化"><a href="#首页文章版式圆角化" class="headerlink" title="首页文章版式圆角化"></a><strong>首页文章版式圆角化</strong></h2><p>本项修改的是首页文章版式，包括图片使其四个角由方形变成圆角形状。将以下代码添加至后台主题设置 自定义<code>CSS</code>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#圆角大小可修改15<span class="selector-tag">px</span>数值</span><br><span class="line"><span class="comment">/*首页文章版式圆角化*/</span></span><br><span class="line"><span class="selector-class">.panel</span>&#123;</span><br><span class="line">    <span class="attribute">border</span>: none;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.panel-small</span>&#123;</span><br><span class="line">    <span class="attribute">border</span>: none;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item-thumb</span>&#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">15px</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="首页文章图片获取焦点放大"><a href="#首页文章图片获取焦点放大" class="headerlink" title="首页文章图片获取焦点放大"></a><strong>首页文章图片获取焦点放大</strong></h2><p>本项修改的是首页文章图片，将鼠标放到首页头图后使其放大。将以下代码添加至后台主题设置 自定义<code>CSS</code>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#放大的时间和大小自行修改以下数值</span><br><span class="line"><span class="comment">/*首页文章图片获取焦点放大*/</span></span><br><span class="line"><span class="selector-class">.item-thumb</span>&#123;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;  </span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.6s</span>;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item-thumb</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">      <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.05);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item-thumb-small</span>&#123;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;  </span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.6s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item-thumb-small</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.05);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="首页头像转动并放大"><a href="#首页头像转动并放大" class="headerlink" title="首页头像转动并放大"></a><strong>首页头像转动并放大</strong></h2><p>本项修改的是首页头像，将鼠标放至头像后使其转动并放大。将以下代码添加至后台主题设置 自定义<code>CSS</code>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#转动快慢和头像大小自行修改数值</span><br><span class="line"><span class="comment">/*首页头像自动旋转*/</span></span><br><span class="line"><span class="selector-class">.thumb-lg</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">130px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.avatar</span>&#123;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: <span class="number">0.4s</span>;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: -webkit-transform <span class="number">0.4s</span> ease-out;</span><br><span class="line">    <span class="attribute">transition</span>: transform <span class="number">0.4s</span> ease-out;</span><br><span class="line">    <span class="attribute">-moz-transition</span>: -moz-transform <span class="number">0.4s</span> ease-out; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.avatar</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#aside-user</span> <span class="selector-tag">span</span><span class="selector-class">.avatar</span>&#123;</span><br><span class="line">    <span class="attribute">animation-timing-function</span>:<span class="built_in">cubic-bezier</span>(0,0,.07,1)<span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">0</span> solid</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#aside-user</span> <span class="selector-tag">span</span><span class="selector-class">.avatar</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">transform</span>:<span class="built_in">rotate</span>(360deg) <span class="built_in">scale</span>(1.2);</span><br><span class="line">    <span class="attribute">border-width</span>:<span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">animation</span>:avatar .<span class="number">5s</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="首页头像放大并自动旋转"><a href="#首页头像放大并自动旋转" class="headerlink" title="首页头像放大并自动旋转"></a><strong>首页头像放大并自动旋转</strong></h2><p>本项修改的是首页头像，效果就是将首页头像放大，并使其自动旋转。将以下代码添加至后台主题设置 自定义<code>CSS</code>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#旋转速度请修改3<span class="selector-tag">s</span>数值</span><br><span class="line"><span class="comment">/*首页头像放大并自动旋转*/</span></span><br><span class="line"><span class="selector-class">.thumb-lg</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">130px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> rotation&#123;</span><br><span class="line">    <span class="selector-tag">from</span> &#123;</span><br><span class="line">        <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(0deg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">to</span> &#123;</span><br><span class="line">        <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(360deg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.img-full</span>&#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(360deg);</span><br><span class="line">    <span class="attribute">animation</span>: rotation <span class="number">3s</span> linear infinite;</span><br><span class="line">    <span class="attribute">-moz-animation</span>: rotation <span class="number">3s</span> linear infinite;</span><br><span class="line">    <span class="attribute">-webkit-animation</span>: rotation <span class="number">3s</span> linear infinite;</span><br><span class="line">    <span class="attribute">-o-animation</span>: rotation <span class="number">3s</span> linear infinite;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="文章标题居中"><a href="#文章标题居中" class="headerlink" title="文章标题居中"></a><strong>文章标题居中</strong></h2><p>本项修改的是文章标题，使其居中。将以下代码添加至后台主题设置 自定义<code>CSS</code>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*文章标题居中*/</span></span><br><span class="line"><span class="selector-class">.panel</span> <span class="selector-tag">h2</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.post-item-foot-icon</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="首页文章版式阴影化"><a href="#首页文章版式阴影化" class="headerlink" title="首页文章版式阴影化"></a><strong>首页文章版式阴影化</strong></h2><p>本项修改的是首页文章版式，包括图片使其四周加上一层绚丽的阴影。将以下代码添加至后台主题设置 自定义<code>CSS</code>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#阴影颜色修改<span class="selector-tag">rgba</span>后面的值</span><br><span class="line"><span class="comment">/*panel阴影*/</span></span><br><span class="line"><span class="selector-class">.panel</span>&#123;</span><br><span class="line">   <span class="attribute">box-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(255, 112, 173, 0.35);</span><br><span class="line">    <span class="attribute">-moz-box-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(255, 112, 173, 0.35);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.panel</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(255, 112, 173, 0.35);</span><br><span class="line">    <span class="attribute">-moz-box-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(255, 112, 173, 0.35);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.panel-small</span>&#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(255, 112, 173, 0.35);</span><br><span class="line">    <span class="attribute">-moz-box-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(255, 112, 173, 0.35);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.panel-small</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(255, 112, 173, 0.35);</span><br><span class="line">    <span class="attribute">-moz-box-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(255, 112, 173, 0.35);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#如果也想使盒子四周也有阴影，加上以下代码</span><br><span class="line"><span class="selector-class">.app</span><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">30px</span> <span class="built_in">rgba</span>(255, 112, 173, 0.35);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="自定义滚动条滑块"><a href="#自定义滚动条滑块" class="headerlink" title="自定义滚动条滑块"></a><strong>自定义滚动条滑块</strong></h2><p>本项修改针对浏览器最右边的滚动条滑块，使其改变样式。将以下代码添加至后台主题设置 自定义<code>CSS</code>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/</span></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(255,255,255,0);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*定义滚动条轨道 内阴影+圆角*/</span></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-track</span>&#123;</span><br><span class="line">    <span class="attribute">-webkit-box-shadow</span>: inset <span class="number">0</span> <span class="number">0</span> <span class="number">6px</span> <span class="built_in">rgba</span>(0,0,0,0.3);</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(255,255,255,0);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*定义滑块 内阴影+圆角*/</span></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-thumb</span>&#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-shadow</span>: inset <span class="number">0</span> <span class="number">0</span> <span class="number">6px</span> <span class="built_in">rgba</span>(0,0,0,.3);</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#555</span>;</span><br></pre></td></tr></table></figure></p>
+<h2 id="鼠标点击特效"><a href="#鼠标点击特效" class="headerlink" title="鼠标点击特效"></a><strong>鼠标点击特效</strong></h2><p>将以下代码放在主题的<code>handsome/component/footer.php</code>中的<code>&lt;/body&gt;</code>之前即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#字体自行修改</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt; </span><br><span class="line">/* 鼠标特效 */</span><br><span class="line">var a_idx = 0; </span><br><span class="line">jQuery(document).ready(function($) &#123; </span><br><span class="line">    $(&quot;body&quot;).click(function(e) &#123; </span><br><span class="line">        var a = new Array(&quot;富强&quot;, &quot;民主&quot;, &quot;文明&quot;, &quot;和谐&quot;, &quot;自由&quot;, &quot;平等&quot;, &quot;公正&quot; ,&quot;法治&quot;, &quot;爱国&quot;, &quot;敬业&quot;, &quot;诚信&quot;, &quot;友善&quot;); </span><br><span class="line">        var $i = $(&quot;&lt;span/&gt;&quot;).text(a[a_idx]); </span><br><span class="line">        a_idx = (a_idx + 1) % a.length; </span><br><span class="line">        var x = e.pageX, </span><br><span class="line">        y = e.pageY; </span><br><span class="line">        $i.css(&#123; </span><br><span class="line">            &quot;z-index&quot;: 999999999999999999999999999999999999999999999999999999999999999999999, </span><br><span class="line">            &quot;top&quot;: y - 20, </span><br><span class="line">            &quot;left&quot;: x, </span><br><span class="line">            &quot;position&quot;: &quot;absolute&quot;, </span><br><span class="line">            &quot;font-weight&quot;: &quot;bold&quot;, </span><br><span class="line">            &quot;color&quot;: &quot;#ff6651&quot; </span><br><span class="line">        &#125;); </span><br><span class="line">        $(&quot;body&quot;).append($i); </span><br><span class="line">        $i.animate(&#123; </span><br><span class="line">            &quot;top&quot;: y - 180, </span><br><span class="line">            &quot;opacity&quot;: 0 </span><br><span class="line">        &#125;, </span><br><span class="line">        1500, </span><br><span class="line">        function() &#123; </span><br><span class="line">            $i.remove(); </span><br><span class="line">        &#125;); </span><br><span class="line">    &#125;); </span><br><span class="line">&#125;); </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="评论框特效"><a href="#评论框特效" class="headerlink" title="评论框特效"></a><strong>评论框特效</strong></h2><p>下载特效<code>JS</code>文件：<a href="https://5sir.cn/usr/uploads/commentTyping.js" target="_blank" rel="noopener">commentTyping.js</a>，将其放在网站目录某个地方，然后编辑主题文件<code>handsome/component/footer.php</code>，在<code>&lt;/body&gt;</code>后面添加以下代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;(JS文件路径)&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="站点动态时间轴"><a href="#站点动态时间轴" class="headerlink" title="站点动态时间轴"></a><strong>站点动态时间轴</strong></h2><p>将以下代码添加至handsome主题设置 自定义<code>CSS</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* 站点动态时间轴 */</span><br><span class="line">#teamnewslist ol&#123;list-style:none;margin-left: 36px;padding-left: 14px;border-left: 2px solid #eee;font-size: 18px;color: #666;&#125;</span><br><span class="line">#teamnewslist b&#123;font-size: 12px;font-weight: normal;color: #999;display: block;position: relative;margin-bottom:5px;&#125;</span><br><span class="line">#teamnewslist b::after&#123;position: absolute;top: 6px;left: -22px;content: &apos;&apos;;width: 14px;height: 14px;border-radius: 50%;background-color: #fff;border: 2px solid #ccc;box-shadow: 2px 2px 0 rgba(255,255,255,1), -2px -2px 0 rgba(255,255,255,1)&#125;</span><br><span class="line">#teamnewslist li&#123;list-style:none;margin: 0 0 20px 0;line-height: 100%;&#125;</span><br><span class="line">#teamnewslist li:hover&#123;color: #555;&#125;</span><br><span class="line">#teamnewslist li:hover b::after&#123;border-color: #C01E22;&#125;</span><br><span class="line">#teamnewslist li:hover b&#123;color: #C01E22;&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="自定义鼠标样式"><a href="#自定义鼠标样式" class="headerlink" title="自定义鼠标样式"></a><strong>自定义鼠标样式</strong></h2><p>在这里以<code>handsome</code>主题为例：外观——主题设置——开发设置——自定义<code>css</code>。</p>
+<p>插入以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">    cursor:url(&apos;鼠标指针图片链接&apos;), auto;</span><br><span class="line">&#125;</span><br><span class="line">select, input, textarea, a, button &#123;</span><br><span class="line">    cursor:url(&apos;鼠标指针图片链接&apos;), auto;</span><br><span class="line">&#125;</span><br><span class="line">input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly] &#123;</span><br><span class="line">    cursor:url(&apos;鼠标指针图片链接&apos;), auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其他主题方法大致相同,把这代码输出在<code>&lt;/head&gt;</code>之前即可。</p>
+<h2 id="图片抖动效果"><a href="#图片抖动效果" class="headerlink" title="图片抖动效果"></a><strong>图片抖动效果</strong></h2><p>将以下代码添加至 外观——主题设置——开发设置——自定义<code>css</code>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line"><span class="attribute">-webkit-animation</span>:sucaijiayuan <span class="number">1s</span> .<span class="number">1s</span> ease both;</span><br><span class="line"><span class="attribute">-moz-animation</span>:tada <span class="number">1s</span> .<span class="number">1s</span> ease both;</span><br><span class="line">&#125;</span><br><span class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> sucaijiayuan &#123;</span><br><span class="line">0% &#123;</span><br><span class="line"><span class="attribute">-webkit-transform</span>:<span class="built_in">scale</span>(1)</span><br><span class="line">&#125;</span><br><span class="line">10%, 20% &#123;</span><br><span class="line"><span class="attribute">-webkit-transform</span>:<span class="built_in">scale</span>(0.8) <span class="built_in">rotate</span>(-2deg)</span><br><span class="line">&#125;</span><br><span class="line">30%, 50%, 70%, 90% &#123;</span><br><span class="line"><span class="attribute">-webkit-transform</span>:<span class="built_in">scale</span>(1.1) <span class="built_in">rotate</span>(2deg)</span><br><span class="line">&#125;</span><br><span class="line">40%, 60%, 80% &#123;</span><br><span class="line"><span class="attribute">-webkit-transform</span>:<span class="built_in">scale</span>(1.1) <span class="built_in">rotate</span>(-2deg)</span><br><span class="line">&#125;</span><br><span class="line">100% &#123;</span><br><span class="line"><span class="attribute">-webkit-transform</span>:<span class="built_in">scale</span>(1) <span class="built_in">rotate</span>(0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>[scode type=”yellow”]本帖所有资源整合转载于网络[/scode]</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/handsome/" rel="tag"># handsome</a>
+          
+            <a href="/tags/美化/" rel="tag"># 美化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/05/搜索引擎网站收录地址集合/" rel="next" title="搜索引擎网站收录地址集合">
+                <i class="fa fa-chevron-left"></i> 搜索引擎网站收录地址集合
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/07/一段自定义显示问候语代码/" rel="prev" title="一段自定义显示问候语代码">
+                一段自定义显示问候语代码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="鄙人梁某">
+            
+              <p class="site-author-name" itemprop="name">鄙人梁某</p>
+              <p class="site-description motion-element" itemprop="description">即使从梦中醒来，还会有回忆留下。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首页文章版式圆角化"><span class="nav-number">1.</span> <span class="nav-text">首页文章版式圆角化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页文章图片获取焦点放大"><span class="nav-number">2.</span> <span class="nav-text">首页文章图片获取焦点放大</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页头像转动并放大"><span class="nav-number">3.</span> <span class="nav-text">首页头像转动并放大</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页头像放大并自动旋转"><span class="nav-number">4.</span> <span class="nav-text">首页头像放大并自动旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章标题居中"><span class="nav-number">5.</span> <span class="nav-text">文章标题居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页文章版式阴影化"><span class="nav-number">6.</span> <span class="nav-text">首页文章版式阴影化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义滚动条滑块"><span class="nav-number">7.</span> <span class="nav-text">自定义滚动条滑块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标点击特效"><span class="nav-number">8.</span> <span class="nav-text">鼠标点击特效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论框特效"><span class="nav-number">9.</span> <span class="nav-text">评论框特效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#站点动态时间轴"><span class="nav-number">10.</span> <span class="nav-text">站点动态时间轴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义鼠标样式"><span class="nav-number">11.</span> <span class="nav-text">自定义鼠标样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片抖动效果"><span class="nav-number">12.</span> <span class="nav-text">图片抖动效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">鄙人梁某</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

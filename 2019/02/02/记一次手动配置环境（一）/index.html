@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="LNMP,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言之前博主使用的是宝塔一键 感觉这样的确很方便 但是意识到了一些问题之后(会变得更懒，产生依赖性，此处省略1千字) 果断抛弃了宝塔面板(不是说不好用哈) 便改为了自己手动配置环境 在这途中踩了不少坑 也碰到了各种报错 不过最后都解决了 在此给大家分享一下  环境Centos7.5 + Nginx1.12 + PHP7.2.14 + MariaDB5.5 + PHPMyAdmin  使用软件1.X">
+<meta name="keywords" content="LNMP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次手动配置环境（一）">
+<meta property="og:url" content="https://5sir.github.io/2019/02/02/记一次手动配置环境（一）/index.html">
+<meta property="og:site_name" content="鄙人梁某">
+<meta property="og:description" content="前言之前博主使用的是宝塔一键 感觉这样的确很方便 但是意识到了一些问题之后(会变得更懒，产生依赖性，此处省略1千字) 果断抛弃了宝塔面板(不是说不好用哈) 便改为了自己手动配置环境 在这途中踩了不少坑 也碰到了各种报错 不过最后都解决了 在此给大家分享一下  环境Centos7.5 + Nginx1.12 + PHP7.2.14 + MariaDB5.5 + PHPMyAdmin  使用软件1.X">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://5sir.cn/usr/themes/handsome/usr/img/emotion/tieba/Y.tb7.png">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006Xmmmgly1fzt8g3fbrsj31d30dldgx.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006Xmmmgly1fztbiznjqbj310i0qe415.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006Xmmmgly1fztc4koowrj30k50ha3z7.jpg">
+<meta property="og:image" content="https://5sir.cn/usr/themes/handsome/usr/img/emotion/tieba/Y.tb11.png">
+<meta property="og:updated_time" content="2019-05-05T13:59:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记一次手动配置环境（一）">
+<meta name="twitter:description" content="前言之前博主使用的是宝塔一键 感觉这样的确很方便 但是意识到了一些问题之后(会变得更懒，产生依赖性，此处省略1千字) 果断抛弃了宝塔面板(不是说不好用哈) 便改为了自己手动配置环境 在这途中踩了不少坑 也碰到了各种报错 不过最后都解决了 在此给大家分享一下  环境Centos7.5 + Nginx1.12 + PHP7.2.14 + MariaDB5.5 + PHPMyAdmin  使用软件1.X">
+<meta name="twitter:image" content="https://5sir.cn/usr/themes/handsome/usr/img/emotion/tieba/Y.tb7.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://5sir.github.io/2019/02/02/记一次手动配置环境（一）/">
+
+
+
+
+
+  <title>记一次手动配置环境（一） | 鄙人梁某</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鄙人梁某</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">即使从梦中醒来，还会有回忆留下。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://5sir.github.io/2019/02/02/记一次手动配置环境（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鄙人梁某">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鄙人梁某">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">记一次手动配置环境（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-02T15:01:00+08:00">
+                2019-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/生活随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">生活随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前博主使用的是宝塔一键 感觉这样的确很方便 但是意识到了一些问题之后(会变得更懒，产生依赖性，此处省略1千字) 果断抛弃了宝塔面板(不是说不好用哈) 便改为了自己手动配置环境 在这途中踩了不少坑 也碰到了各种报错 不过最后都解决了 在此给大家分享一下<img src="https://5sir.cn/usr/themes/handsome/usr/img/emotion/tieba/Y.tb7.png" width="7%"></p>
+<hr>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p><code>Centos7.5</code> + <code>Nginx1.12</code> + <code>PHP7.2.14</code> + <code>MariaDB5.5</code> + <code>PHPMyAdmin</code></p>
+<hr>
+<h2 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h2><p>1.Xshell6</p>
+<p>2.WinScp</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>首先我们先使用<code>yum update -y</code>来升级一下所有包、软件和系统内核</p>
+<h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><p>安装 Nginx：</p>
+<p><code>yum install nginx -y</code></p>
+<p>安装完成后，启动 Nginx服务和设置开机自启：</p>
+<p><code>systemctl start nginx</code></p>
+<p><code>systemctl enable nginx</code></p>
+<p>在这里我们已经安装好了Nginx，在浏览器中输入你的服务器IP，回车，即可看到以下界面</p>
+<p><img src="https://ws4.sinaimg.cn/large/006Xmmmgly1fzt8g3fbrsj31d30dldgx.jpg" alt></p>
+<p>[scode type=”yellow”]若无法访问的话，请将防火墙放行80端口[/scode]</p>
+<h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4><p>安装 MySQL（MariaDB）：</p>
+<p><code>yum install mariadb-server mariadb -y</code></p>
+<p>安装完成后，启动 MariaDB 服务和设置开机自启：</p>
+<p><code>systemctl start mariadb</code></p>
+<p><code>systemctl enable mariadb</code></p>
+<p>接下来我们来运行一个简单的安全脚本，它将删除一些危险的默认值，并锁定对我们的数据库系统的访问。</p>
+<p><code>mysql_secure_installation</code></p>
+<p>根据提示我们需要设置一遍数据库的安全，删除匿名用户等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB</span><br><span class="line">SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!</span><br><span class="line"></span><br><span class="line">In order to log into MariaDB to secure it, we&apos;ll need the current</span><br><span class="line">password for the root user.  If you&apos;ve just installed MariaDB, and</span><br><span class="line">you haven&apos;t set the root password yet, the password will be blank,</span><br><span class="line">so you should just press enter here.</span><br><span class="line"></span><br><span class="line">Enter current password for root (enter for none):</span><br><span class="line">OK, successfully used password, moving on...</span><br><span class="line"></span><br><span class="line">Setting the root password ensures that nobody can log into the MariaDB</span><br><span class="line">root user without the proper authorisation.</span><br><span class="line"></span><br><span class="line">Set root password? [Y/n] y</span><br><span class="line">New password:</span><br><span class="line">Re-enter new password:</span><br><span class="line">Password updated successfully!</span><br><span class="line">Reloading privilege tables..</span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line">By default, a MariaDB installation has an anonymous user, allowing anyone</span><br><span class="line">to log into MariaDB without having to have a user account created for</span><br><span class="line">them.  This is intended only for testing, and to make the installation</span><br><span class="line">go a bit smoother.  You should remove them before moving into a</span><br><span class="line">production environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? [Y/n] y</span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line">Normally, root should only be allowed to connect from &apos;localhost&apos;.  This</span><br><span class="line">ensures that someone cannot guess at the root password from the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? [Y/n] y</span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line">By default, MariaDB comes with a database named &apos;test&apos; that anyone can</span><br><span class="line">access.  This is also intended only for testing, and should be removed</span><br><span class="line">before moving into a production environment.</span><br><span class="line"></span><br><span class="line">Remove test database and access to it? [Y/n] y</span><br><span class="line">- Dropping test database...</span><br><span class="line">... Success!</span><br><span class="line">- Removing privileges on test database...</span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line">Reloading the privilege tables will ensure that all changes made so far</span><br><span class="line">will take effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? [Y/n] y</span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line">Cleaning up...</span><br><span class="line"></span><br><span class="line">All done!  If you&apos;ve completed all of the above steps, your MariaDB</span><br><span class="line">installation should now be secure.</span><br><span class="line"></span><br><span class="line">Thanks for using MariaDB!</span><br></pre></td></tr></table></figure>
+<h4 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h4><p>安装PHP7.2</p>
+<p>我们先更改一下yum源（因为linux的yum源不存在php7.x）</p>
+<p><code>rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</code></p>
+<p><code>rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</code></p>
+<p>开始安装PHP7.2及各种扩展</p>
+<p><code>yum -y install php72w php72w-cli php72w-common php72w-devel php72w-embedded php72w-fpm php72w-gd php72w-mbstring php72w-mysqlnd php72w-opcache php72w-pdo php72w-xml</code></p>
+<p>待安装完后，我们来配置一下PHP处理器</p>
+<p><code>vi /etc/php.ini</code></p>
+<p>我们在这个文件中寻找的是设置<code>cgi.fix_pathinfo</code>的参数，它默认值为“1”。</p>
+<p>这是一个非常不安全的设置，因为它告诉PHP尝试执行最接近的文件，如果PHP文件不完全匹配，它可以找到。这基本上将允许用户以允许他们执行不应该被允许执行的脚本的方式来制作PHP请求。</p>
+<p>我们将通过取消注释行并将其设置为“0”来更改这两个条件：</p>
+<p><code>cgi.fix_pathinfo=0</code></p>
+<p>如果不存在以下设置的话，增加该配置。如果被注释了话，去掉注释</p>
+<p><code>session.save_path = &quot;/var/lib/php/session&quot;</code></p>
+<p>完成后按<code>ESC</code>键 输入<code>:wq</code>保存并关闭文件</p>
+<p>接着我们来查看该目录是否存在：</p>
+<p><code>ls /var/lib/php/session</code></p>
+<p>如果不存在，则手动创建此目录，命令如下</p>
+<p><code>mkdir /var/lib/php/session</code></p>
+<p>如果存在的话，我们修改目录属主为<code>nginx</code></p>
+<p><code>chown nginx:nginx /var/lib/php/session/ -R</code></p>
+<p>接下来，打开 php-fpm 配置文件<code>www.conf</code></p>
+<p><code>vi /etc/php-fpm.d/www.conf</code></p>
+<p>找到指定参数的行<code>listen</code>，然后更改它，如下所示：</p>
+<p><code>listen = /var/run/php-fpm/php-fpm.sock</code></p>
+<p>接下来，找到<code>listen.owner</code>和<code>listen.group</code>并取消注释，改为以下</p>
+<p><code>isten.owner = nginx</code></p>
+<p><code>listen.group = nginx</code></p>
+<p>最后，找到 <code>user</code> 和 <code>group</code> 把 “<code>apache</code>” 改成 “<code>nginx</code>”</p>
+<p><code>user = nginx</code></p>
+<p><code>group = nginx</code></p>
+<p>然后按<code>ESC</code>键 输入<code>:wq</code>保存并关闭文件</p>
+<p>最后重启php-fpm服务</p>
+<p><code>systemctl restart php-fpm</code></p>
+<p>添加php-fpm自启服务</p>
+<p><code>systemctl enable php-fpm</code></p>
+<h4 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h4><p>配置Nginx来处理PHP页面</p>
+<p><code>vi /etc/nginx/nginx.conf</code></p>
+<p>在server{ }块中添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">    try_files $uri =404;</span><br><span class="line">    fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;</span><br><span class="line">    fastcgi_index index.php;</span><br><span class="line">    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">    include fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完成后按<code>ESC</code>键 输入<code>:wq</code>保存并关闭文件</p>
+<p>接着我们重新启动Nginx进行必要的更改</p>
+<p><code>systemctl restart nginx</code></p>
+<h4 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h4><p>在Web服务器上测试PHP处理</p>
+<p><code>vi /usr/share/nginx/html/info.php</code></p>
+<p>按i键  添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">phpinfo(); </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>完成后按<code>ESC</code>键 输入<code>:wq</code>保存并关闭文件</p>
+<p>接下来我们访问<code>服务器ip/info.php</code></p>
+<p>会出现以下界面</p>
+<p><img src="https://ws1.sinaimg.cn/large/006Xmmmgly1fztbiznjqbj310i0qe415.jpg" alt></p>
+<h4 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h4><p>安装PHPMyAdmin</p>
+<p><code>cd /usr/share/nginx/html</code></p>
+<p>首先我们从官网下载压缩包过来</p>
+<p><code>wget https://files.phpmyadmin.net/phpMyAdmin/4.8.5/phpMyAdmin-4.8.5-all-languages.zip</code></p>
+<p>解压压缩包</p>
+<p><code>unzip phpMyAdmin-4.8.5-all-languages.zip</code></p>
+<p>重命名文件夹为pma</p>
+<p><code>mv phpMyAdmin-4.8.5-all-languages.zip pma</code></p>
+<p>进入pma文件夹</p>
+<p><code>cd pma</code></p>
+<p>复制一份<code>config.inc.php</code>文件</p>
+<p><code>cp config.sample.inc.php config.inc.php</code></p>
+<p>配置<code>config.inc.php</code></p>
+<p><code>vi config.inc.php</code></p>
+<p>设置一个内部使用的秘钥（和内部加密有关，与页面登录没有直接关系）</p>
+<p><code>$cfg[&#39;blowfish_secret&#39;] = ‘5sir.cn&#39;;</code></p>
+<p>接下来我们来添加一个Nginx站点的配置文件，给phpmyadmin来使用</p>
+<p><code>vi /etc/nginx/conf.d/phpmyadmin.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line"> listen 1234;#这个端口号是phpmyadmin访问的端口，可自定义</span><br><span class="line"> server_name localhost;</span><br><span class="line"></span><br><span class="line"> location / &#123;</span><br><span class="line">  root /usr/share/nginx/html/pma/;</span><br><span class="line">  index index.php;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> location ~ \.php$ &#123;</span><br><span class="line">  root /usr/share/nginx/html/pma/;</span><br><span class="line"></span><br><span class="line">  fastcgi_pass  unix:/var/run/php-fpm/php-fpm.sock;</span><br><span class="line">  fastcgi_index index.php;</span><br><span class="line">  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">  include fastcgi_params;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> location ~ /\.ht &#123;</span><br><span class="line">  deny all;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>[scode type=”yellow”]如果是按照博主提供的以上配置文件，记得把在防火墙内放行1234端口哦[/scode]</p>
+<p>最后重启一下<code>nginx</code>：</p>
+<p><code>systemctl resrart nginx</code></p>
+<p>接下来访问<code>服务器ip:1234</code></p>
+<p>即可看到以下界面</p>
+<p><img src="https://ws3.sinaimg.cn/large/006Xmmmgly1fztc4koowrj30k50ha3z7.jpg" alt></p>
+<p>未完待续<img src="https://5sir.cn/usr/themes/handsome/usr/img/emotion/tieba/Y.tb11.png" width="8%"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LNMP/" rel="tag"># LNMP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/02/HandSome主题顶栏显示天气/" rel="next" title="HandSome主题顶栏显示天气">
+                <i class="fa fa-chevron-left"></i> HandSome主题顶栏显示天气
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/02/博客评论时一键填写自己的博客信息/" rel="prev" title="博客评论时一键填写自己的博客信息">
+                博客评论时一键填写自己的博客信息 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="鄙人梁某">
+            
+              <p class="site-author-name" itemprop="name">鄙人梁某</p>
+              <p class="site-description motion-element" itemprop="description">即使从梦中醒来，还会有回忆留下。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用软件"><span class="nav-number">3.</span> <span class="nav-text">使用软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">4.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步"><span class="nav-number">4.0.1.</span> <span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步"><span class="nav-number">4.0.2.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步"><span class="nav-number">4.0.3.</span> <span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步"><span class="nav-number">4.0.4.</span> <span class="nav-text">第四步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五步"><span class="nav-number">4.0.5.</span> <span class="nav-text">第五步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第六步"><span class="nav-number">4.0.6.</span> <span class="nav-text">第六步</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">鄙人梁某</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

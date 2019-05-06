@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="AUXPI,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="功能简介 支持web上传图片 支持API上传图片 支持搜狗图床，新浪图床，SMMS图床的图片上传 API可以设置token，可以私用，也可以选择关闭API，只保留web上传 可以设置是否开启新浪图床上传（因为新浪图床需要登录自己的账号） 可以设置允许上传的图片最大大小和一次性上传的最多张数 轻量级不使用任何数据库  截图  安装以linux宝塔面板为例，需要有一个 Nginx或者Caddy 就够了">
+<meta name="keywords" content="AUXPI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AUXPI：基于API的简单图床，支持搜狗图床&#x2F;新浪图床&#x2F;SMMS图床上传">
+<meta property="og:url" content="https://5sir.github.io/2018/11/22/AUXPI：基于API的简单图床，支持搜狗图床-新浪图床-SMMS图床上传/index.html">
+<meta property="og:site_name" content="鄙人梁某">
+<meta property="og:description" content="功能简介 支持web上传图片 支持API上传图片 支持搜狗图床，新浪图床，SMMS图床的图片上传 API可以设置token，可以私用，也可以选择关闭API，只保留web上传 可以设置是否开启新浪图床上传（因为新浪图床需要登录自己的账号） 可以设置允许上传的图片最大大小和一次性上传的最多张数 轻量级不使用任何数据库  截图  安装以linux宝塔面板为例，需要有一个 Nginx或者Caddy 就够了">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/005RIXlIly1fxh0gghn01j31b10m9myj.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/005RIXlIly1fxh0ghsn1gj31ak0nv0us.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/005RIXlIly1fxh0ggpxrqj30i80dfdgi.jpg">
+<meta property="og:updated_time" content="2019-05-05T13:59:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AUXPI：基于API的简单图床，支持搜狗图床&#x2F;新浪图床&#x2F;SMMS图床上传">
+<meta name="twitter:description" content="功能简介 支持web上传图片 支持API上传图片 支持搜狗图床，新浪图床，SMMS图床的图片上传 API可以设置token，可以私用，也可以选择关闭API，只保留web上传 可以设置是否开启新浪图床上传（因为新浪图床需要登录自己的账号） 可以设置允许上传的图片最大大小和一次性上传的最多张数 轻量级不使用任何数据库  截图  安装以linux宝塔面板为例，需要有一个 Nginx或者Caddy 就够了">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/005RIXlIly1fxh0gghn01j31b10m9myj.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://5sir.github.io/2018/11/22/AUXPI：基于API的简单图床，支持搜狗图床-新浪图床-SMMS图床上传/">
+
+
+
+
+
+  <title>AUXPI：基于API的简单图床，支持搜狗图床/新浪图床/SMMS图床上传 | 鄙人梁某</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鄙人梁某</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">即使从梦中醒来，还会有回忆留下。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://5sir.github.io/2018/11/22/AUXPI：基于API的简单图床，支持搜狗图床-新浪图床-SMMS图床上传/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鄙人梁某">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鄙人梁某">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">AUXPI：基于API的简单图床，支持搜狗图床/新浪图床/SMMS图床上传</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T13:40:00+08:00">
+                2018-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/资源技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">资源技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h2><ul>
+<li>支持web上传图片</li>
+<li>支持API上传图片</li>
+<li>支持搜狗图床，新浪图床，SMMS图床的图片上传</li>
+<li>API可以设置token，可以私用，也可以选择关闭API，只保留web上传</li>
+<li>可以设置是否开启新浪图床上传（因为新浪图床需要登录自己的账号）</li>
+<li>可以设置允许上传的图片最大大小和一次性上传的最多张数</li>
+<li>轻量级不使用任何数据库</li>
+</ul>
+<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p><img src="https://ws3.sinaimg.cn/large/005RIXlIly1fxh0gghn01j31b10m9myj.jpg" alt></p>
+<p><img src="https://ws3.sinaimg.cn/large/005RIXlIly1fxh0ghsn1gj31ak0nv0us.jpg" alt></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>以<code>linux宝塔面板</code>为例，需要有一个 <code>Nginx</code>或者<code>Caddy</code> 就够了，其它的都不需要(当前版本不需要)</p>
+<p><img src="https://ws2.sinaimg.cn/large/005RIXlIly1fxh0ggpxrqj30i80dfdgi.jpg" alt></p>
+<p><strong>1、下载AUXPI</strong></p>
+<p>首先进入到<code>Release</code>→<a href="https://github.com/aimerforreimu/AUXPI/releases" title="传送门" target="_blank" rel="noopener">传送门</a>，下载最新版的Linux系统AUXPI文件，目前为V1.01。</p>
+<p>也可按照下面的命令输入到你的服务器终端中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#新建文件夹用来存放auxpi文件</span><br><span class="line">cd /root</span><br><span class="line">mkdir auxpi &amp;&amp; cd auxpi</span><br><span class="line">wget https://github.com/aimerforreimu/AUXPI/releases/download/1.01/auxpi-Linux-64-1.01.tar.gz</span><br><span class="line">#解压文件</span><br><span class="line">tar zxvf auxpi*.tar.gz &amp;&amp; rm -rf auxpi*.tar.gz</span><br></pre></td></tr></table></figure>
+<p><strong>2、配置并运行</strong></p>
+<p>接下来需要编辑一下 <code>conf/app.conf</code></p>
+<p>直接在宝塔中进入 <code>/root/auxpi/conf</code> 目录，找到 <code>app.conf</code> 然后编辑即可，编辑内容请参考下面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">appname = auxpi #程序的名称</span><br><span class="line">httpport = 2333 #程序所运行的端口</span><br><span class="line">runmode = pro   #程序的运行环境dev为开发模式pro为正常模式，建议pro模式</span><br><span class="line">enablexsrf = true #是否开启 CSRF 攻击防御（必须开启）</span><br><span class="line">xsrfkey = ads093jmfas93j*3sd-212df923 #CSRF key这里请随意填写字符串</span><br><span class="line">xsrfexpire = 3600 #CSRF token过期时间</span><br></pre></td></tr></table></figure>
+<p>修改完成以后，打开服务器的终端,然后输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#进入到auxpi文件夹</span><br><span class="line">cd /root/auxpi</span><br><span class="line">#赋予运行权限</span><br><span class="line">chmod u+x auxpi</span><br><span class="line">#运行程序</span><br><span class="line">./auxpi</span><br></pre></td></tr></table></figure>
+<p>运行成功后使用 <code>ip:3000</code> 进行访问，注意在程序第一次运行的时候会在 <code>conf/</code> 目录下生成 <code>install.lock</code> 和 <code>siteConfig.json</code> 如果删除 <code>install.lock</code> 的话 <code>siteConfig.json</code> 就会被初始化为最初的值，所以请不要轻易的删除 <code>install.lock</code></p>
+<p>如果Web界面打不开，可能需要开启防火墙端口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#CentOS 6</span><br><span class="line">iptables -I INPUT -p tcp --dport 2333 -j ACCEPT</span><br><span class="line">service iptables save</span><br><span class="line">service iptables restart</span><br><span class="line"></span><br><span class="line">#CentOS 7</span><br><span class="line">firewall-cmd --zone=public --add-port=2333/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p>如果需要程序常驻后台的话，可以使用<code>screen</code>命令，使用查看→<a href="https://5sir.cn/59.html" title="传送门" target="_blank" rel="noopener">传送门</a>。</p>
+<p><strong>3、站点设置</strong></p>
+<p>等待没有东西输出以后，然后按住 <code>Ctrl+C</code> 退出程序，在宝塔页面打开<code>conf/siteConfig.json</code> 会得到以下内容，如果是一行的话，请复制一下，然后百度一下 <code>json</code> 格式化，将其格式化以后方便修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;site_name&quot;: &quot;AuXpI 图床&quot;, #站点名称</span><br><span class="line">  &quot;site_footer&quot;: &quot;你好世界&quot;, #footer输出的内容</span><br><span class="line">  &quot;site_url&quot;: &quot;/&quot;, # 站点 url</span><br><span class="line">  &quot;site_upload_max_number&quot;: 10,#一次性最多可以上传多少张图片</span><br><span class="line">  &quot;site_up_load_max_size&quot;: 5,#最大允许上传的图片大小，单位MB</span><br><span class="line">  &quot;open_api_up_load&quot;: true,#是否开启API上传 </span><br><span class="line">  &quot;api_token&quot;: &quot;&quot;,#API token 空为不设置</span><br><span class="line">  &quot;api_default&quot;: &quot;SouGou&quot;, #API默认上传上去的图床</span><br><span class="line">  &quot;cache_config&quot;: true, #是否对配置进行缓存(建议开启)</span><br><span class="line">  &quot;site_upload_way&quot;: &#123;</span><br><span class="line">    &quot;local_store&quot;: false, #是否开启本地储存(此功能等待开发)</span><br><span class="line">    &quot;open_sina_pic_store&quot;: false, #是否启用新浪图床</span><br><span class="line">    &quot;sina_account&quot;: &#123;</span><br><span class="line">      &quot;user_name&quot;: &quot;&quot;, #若开启微博图床，请填写您的微博登录用户名</span><br><span class="line">      &quot;pass_word&quot;: &quot;&quot;, #填写您的微博登录密码</span><br><span class="line">      &quot;reset_sina_cookie_time&quot;: 3600,  #微博cookie缓存时间 s</span><br><span class="line">      &quot;defult_pic_size&quot;: &quot;large&quot; #默认返回的微博图片的大小</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中需要说明的是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#reset_sina_cookie_time这一项最好不要更改，更改的话不要让其大于3600s</span><br><span class="line">#defult_pic_size可选的参数为：</span><br><span class="line">square</span><br><span class="line">thumb150</span><br><span class="line">orj360</span><br><span class="line">orj480</span><br><span class="line">mw690</span><br><span class="line">mw1024</span><br><span class="line">mw2048</span><br><span class="line">small</span><br><span class="line">bmiddle</span><br><span class="line">large</span><br></pre></td></tr></table></figure>
+<p>请根据自己的需要进行配置，配置以后需要重新启动程序才能生效。</p>
+<p><strong>4、域名反代</strong></p>
+<p>如果想用域名访问，可以反代下端口，教程参考→<a href="https://5sir.cn/60.html" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+<p>最后关于<code>API</code>上传说明，直接查看<code>Github</code>→<a href="https://github.com/aimerforreimu/AUXPI#api-%E4%B8%8A%E4%BC%A0" title="传送门" target="_blank" rel="noopener">传送门</a>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AUXPI/" rel="tag"># AUXPI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Linux-VPS一键更换软件源脚本/" rel="next" title="Linux VPS一键更换软件源脚本">
+                <i class="fa fa-chevron-left"></i> Linux VPS一键更换软件源脚本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/22/使用screen来实现多任务不断线操作命令/" rel="prev" title="使用screen来实现多任务不断线操作命令">
+                使用screen来实现多任务不断线操作命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="鄙人梁某">
+            
+              <p class="site-author-name" itemprop="name">鄙人梁某</p>
+              <p class="site-description motion-element" itemprop="description">即使从梦中醒来，还会有回忆留下。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#截图"><span class="nav-number">2.</span> <span class="nav-text">截图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">鄙人梁某</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

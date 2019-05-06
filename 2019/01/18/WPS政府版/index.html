@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="WPS,WPS政府版,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言 wps政府版在原有的基础上，内置了专业的办公功能，除此之外，自带无广告功能，而且带有金山有效数字签名，100%官方出品。 版本收集 1、广东省 广东省政府机关单位：传送门">
+<meta name="keywords" content="WPS,WPS政府版">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WPS政府版">
+<meta property="og:url" content="https://5sir.github.io/2019/01/18/WPS政府版/index.html">
+<meta property="og:site_name" content="鄙人梁某">
+<meta property="og:description" content="前言 wps政府版在原有的基础上，内置了专业的办公功能，除此之外，自带无广告功能，而且带有金山有效数字签名，100%官方出品。 版本收集 1、广东省 广东省政府机关单位：传送门">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006Xmmmgly1fzfc8qsvt6j30vb0jewih.jpg">
+<meta property="og:updated_time" content="2019-05-05T13:59:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WPS政府版">
+<meta name="twitter:description" content="前言 wps政府版在原有的基础上，内置了专业的办公功能，除此之外，自带无广告功能，而且带有金山有效数字签名，100%官方出品。 版本收集 1、广东省 广东省政府机关单位：传送门">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006Xmmmgly1fzfc8qsvt6j30vb0jewih.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://5sir.github.io/2019/01/18/WPS政府版/">
+
+
+
+
+
+  <title>WPS政府版 | 鄙人梁某</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鄙人梁某</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">即使从梦中醒来，还会有回忆留下。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://5sir.github.io/2019/01/18/WPS政府版/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鄙人梁某">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鄙人梁某">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">WPS政府版</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-18T20:15:00+08:00">
+                2019-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/资源技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">资源技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
+<p>wps政府版在原有的基础上，内置了专业的办公功能，除此之外，自带无广告功能，而且带有金山有效数字签名，100%官方出品。</p>
+<h2 id="版本收集"><a href="#版本收集" class="headerlink" title="版本收集"></a>版本收集</h2><hr>
+<h4 id="1、广东省"><a href="#1、广东省" class="headerlink" title="1、广东省"></a>1、广东省</h4><blockquote>
+<p>广东省政府机关单位：<a href="http://wpspro.support.wps.cn/gov/guangdong/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>潮州市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/guangdong/chaozhou/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>惠州市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/guangdong/huizhou/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>中山市政府党政机关：<a href="http://wpspro.support.wps.cn/gov/guangdong/zhongshan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>珠海市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/guangdong/zhuhai/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>佛山市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/guangdong/foshan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>茂名市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/guangdong/maoming/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>河源市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/guangdong/heyuan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>揭阳市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/guangdong/jieyang/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>肇庆市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/guangdong/zhaoqing/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="2、重庆市"><a href="#2、重庆市" class="headerlink" title="2、重庆市"></a>2、重庆市</h4><blockquote>
+<p>重庆市政府机关单位：<a href="http://wpspro.support.wps.cn/gov/chongqing/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>铜梁区党政机关单位：<a href="http://wpspro.support.wps.cn/gov/chongqing/tongliang/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>巴南区党政机关单位：<a href="http://wpspro.support.wps.cn/gov/chongqing/banan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>沙坪坝区政府机关单位：<a href="http://wpspro.support.wps.cn/gov/chongqing/shapingba/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>荣昌区政府机关单位：<a href="http://wpspro.support.wps.cn/gov/chongqing/rongchang/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>云阳县政府机关单位：<a href="http://wpspro.support.wps.cn/gov/chongqing/yunyang/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>奉节县政府机关单位：<a href="http://wpspro.support.wps.cn/gov/chongqing/fengjie/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>巫溪县党政机关单位：<a href="http://wpspro.support.wps.cn/gov/chongqing/wuxi/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>秀山县党政机关单位：<a href="http://wpspro.support.wps.cn/gov/chongqing/xiushan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="3、海南省"><a href="#3、海南省" class="headerlink" title="3、海南省"></a>3、海南省</h4><blockquote>
+<p>海南省党政机关单位：<a href="http://wpspro.support.wps.cn/gov/hainan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>三亚市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/hainan/sanya/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="4、云南省"><a href="#4、云南省" class="headerlink" title="4、云南省"></a>4、云南省</h4><blockquote>
+<p>云南省党政机关单位：<a href="http://wpsupdate.ynxgj.gov.cn:21009/wps_download/index.html" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="5、山东省"><a href="#5、山东省" class="headerlink" title="5、山东省"></a>5、山东省</h4><blockquote>
+<p>山东省部分省级预算单位：<a href="http://wpspro.support.wps.cn/gov/shandong/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>德州市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/shandong/dezhou/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>日照市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/shandong/rizhao/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>莱芜市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/shandong/laiwu/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>烟台市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/shandong/yantai/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>枣庄市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/shandong/zaozhuang/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="6、山西省"><a href="#6、山西省" class="headerlink" title="6、山西省"></a>6、山西省</h4><blockquote>
+<p>国家税务总局山西省税务局：<a href="http://wpspro.support.wps.cn/gov/shanxi/shuiwu/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>晋城市政府机关单位：<a href="http://wpspro.support.wps.cn/gov/shanxi/jincheng/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>运城市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/shanxi/yuncheng/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="7、广西省"><a href="#7、广西省" class="headerlink" title="7、广西省"></a>7、广西省</h4><blockquote>
+<p>广西省党政机关单位：<a href="http://wpspro.support.wps.cn/gov/guangxi/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="8、吉林省"><a href="#8、吉林省" class="headerlink" title="8、吉林省"></a>8、吉林省</h4><blockquote>
+<p>吉林市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/jilin/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="9、湖南省"><a href="#9、湖南省" class="headerlink" title="9、湖南省"></a>9、湖南省</h4><blockquote>
+<p>长沙市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/hunan/changsha/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="10、四川省"><a href="#10、四川省" class="headerlink" title="10、四川省"></a>10、四川省</h4><blockquote>
+<p>四川省政府机关单位：<a href="http://wpspro.support.wps.cn/gov/sichuan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>成都市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/sichuan/chengdu/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>雅安市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/sichuan/yaan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>广元市教育行业：<a href="http://wpspro.support.wps.cn/gov/sichuan/guangyuan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="11、辽宁省"><a href="#11、辽宁省" class="headerlink" title="11、辽宁省"></a>11、辽宁省</h4><blockquote>
+<p>辽宁省直机关政府单位：<a href="http://wpspro.support.wps.cn/gov/liaoning/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>沈阳市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/liaoning/shenyang/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="12、黑龙江省"><a href="#12、黑龙江省" class="headerlink" title="12、黑龙江省"></a>12、黑龙江省</h4><blockquote>
+<p>黑龙江省直党政机关：<a href="http://wpspro.support.wps.cn/gov/heilongjiang/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>大庆市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/heilongjiang/daqing/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>绥化市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/heilongjiang/suihua/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="13、福建省"><a href="#13、福建省" class="headerlink" title="13、福建省"></a>13、福建省</h4><blockquote>
+<p>福建省党政机关单位：<a href="http://wpspro.support.wps.cn/gov/fujian/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>泉州市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/fujian/quanzhou/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>福州市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/fujian/fuzhou/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>厦门市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/fujian/xiamen/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="14、江西省"><a href="#14、江西省" class="headerlink" title="14、江西省"></a>14、江西省</h4><blockquote>
+<p>江西省党政机关单位：<a href="http://wpspro.support.wps.cn/gov/jiangxi/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="15、西藏自治区"><a href="#15、西藏自治区" class="headerlink" title="15、西藏自治区"></a>15、西藏自治区</h4><blockquote>
+<p>西藏自治区党政机关单位：<a href="http://wpspro.support.wps.cn/gov/xizang/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="16、北京市"><a href="#16、北京市" class="headerlink" title="16、北京市"></a>16、北京市</h4><blockquote>
+<p>西城区政府机关单位：<a href="http://wpspro.support.wps.cn/gov/beijing/xicheng/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>平谷区政府机关单位：<a href="http://wpspro.support.wps.cn/gov/beijing/pinggu/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>石景山区党政机关单位：<a href="http://wpspro.support.wps.cn/gov/beijing/shijingshan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="17、安徽省"><a href="#17、安徽省" class="headerlink" title="17、安徽省"></a>17、安徽省</h4><blockquote>
+<p>六安市政府机关单位：<a href="http://wpspro.support.wps.cn/gov/anhui/liuan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="18、湖北省"><a href="#18、湖北省" class="headerlink" title="18、湖北省"></a>18、湖北省</h4><blockquote>
+<p>武汉市党政机关单位：<a href="http://wpspro.support.wps.cn/gov/hubei/wuhan/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<h4 id="19、各其他企业单位"><a href="#19、各其他企业单位" class="headerlink" title="19、各其他企业单位"></a>19、各其他企业单位</h4><blockquote>
+<p>中国能源建设股份有限公司：<a href="http://wpspro.support.wps.cn/enterprise/ceec/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>中国铁建：<a href="http://wpspro.support.wps.cn/enterprise/crcc/" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>石家庄市人力资源和社会保障局：<a href="http://www.sjzrs.gov.cn/col/1515395624617/2018/02/11/1518329562990.html" title="传送门" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<!--more-->
+<blockquote>
+<p>国家电网內部版：<a href="https://pan.baidu.com/s/1t-idJ6t6phiJaYpAoe2sLQ" title="提取码：5hbu" target="_blank" rel="noopener">百度网盘</a>   （提取码：5hbu）</p>
+</blockquote>
+<h4 id="20、十分有逼格版"><a href="#20、十分有逼格版" class="headerlink" title="20、十分有逼格版"></a>20、十分有逼格版</h4><blockquote>
+<p>国家最高行政版本：<a href="https://pan.baidu.com/s/1HnuPAJxNRinGGbpVJWbtHA" title="提取码：y8vi" target="_blank" rel="noopener">百度网盘</a>   （提取码：y8vi）</p>
+</blockquote>
+<!--more-->
+<p><del>附图一张</del></p>
+<p><img src="https://ws4.sinaimg.cn/large/006Xmmmgly1fzfc8qsvt6j30vb0jewih.jpg" width="80%"></p>
+<h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><hr>
+<h4 id="把xxxx单位去掉的方法"><a href="#把xxxx单位去掉的方法" class="headerlink" title="把xxxx单位去掉的方法"></a>把xxxx单位去掉的方法</h4><p><code>软件安装目录</code>找到<code>oem</code>文件夹<br>替换图片就行了</p>
+<hr>
+<h4 id="WPS-Office简单去广告方法"><a href="#WPS-Office简单去广告方法" class="headerlink" title="WPS Office简单去广告方法"></a>WPS Office简单去广告方法</h4><p>首先打开控制面板，假装要卸载wps.然后卸载，wps会问你卸载原因。这时候你就选择广告太多。这时候会弹出彻底关闭广告的弹窗。</p>
+<hr>
+<h4 id="KEY"><a href="#KEY" class="headerlink" title="KEY"></a>KEY</h4><p>序列号1：<code>9DP6T-9AGWG-KWV33-9MPC8-JDCVF</code><br>序列号2：<code>THUV2-32HH7-6NMHN-PTX7Y-QQCTH</code></p>
+<p>wps专业版安装序列号：<code>R7AKQ-KLBXV-RNX3F-BPACQ-NQDGE</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WPS/" rel="tag"># WPS</a>
+          
+            <a href="/tags/WPS政府版/" rel="tag"># WPS政府版</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/18/评论自动排名--Handsome/" rel="next" title="评论自动排名--Handsome">
+                <i class="fa fa-chevron-left"></i> 评论自动排名--Handsome
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/23/京东图床上传接口-PHP源码/" rel="prev" title="京东图床上传接口 PHP源码">
+                京东图床上传接口 PHP源码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="鄙人梁某">
+            
+              <p class="site-author-name" itemprop="name">鄙人梁某</p>
+              <p class="site-description motion-element" itemprop="description">即使从梦中醒来，还会有回忆留下。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本收集"><span class="nav-number">2.</span> <span class="nav-text">版本收集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、广东省"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、广东省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、重庆市"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、重庆市</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、海南省"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、海南省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、云南省"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、云南省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、山东省"><span class="nav-number">2.0.5.</span> <span class="nav-text">5、山东省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、山西省"><span class="nav-number">2.0.6.</span> <span class="nav-text">6、山西省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、广西省"><span class="nav-number">2.0.7.</span> <span class="nav-text">7、广西省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、吉林省"><span class="nav-number">2.0.8.</span> <span class="nav-text">8、吉林省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、湖南省"><span class="nav-number">2.0.9.</span> <span class="nav-text">9、湖南省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、四川省"><span class="nav-number">2.0.10.</span> <span class="nav-text">10、四川省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、辽宁省"><span class="nav-number">2.0.11.</span> <span class="nav-text">11、辽宁省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、黑龙江省"><span class="nav-number">2.0.12.</span> <span class="nav-text">12、黑龙江省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、福建省"><span class="nav-number">2.0.13.</span> <span class="nav-text">13、福建省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14、江西省"><span class="nav-number">2.0.14.</span> <span class="nav-text">14、江西省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15、西藏自治区"><span class="nav-number">2.0.15.</span> <span class="nav-text">15、西藏自治区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16、北京市"><span class="nav-number">2.0.16.</span> <span class="nav-text">16、北京市</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17、安徽省"><span class="nav-number">2.0.17.</span> <span class="nav-text">17、安徽省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18、湖北省"><span class="nav-number">2.0.18.</span> <span class="nav-text">18、湖北省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19、各其他企业单位"><span class="nav-number">2.0.19.</span> <span class="nav-text">19、各其他企业单位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20、十分有逼格版"><span class="nav-number">2.0.20.</span> <span class="nav-text">20、十分有逼格版</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#使用技巧"><span class="nav-number">3.</span> <span class="nav-text">使用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#把xxxx单位去掉的方法"><span class="nav-number">3.0.1.</span> <span class="nav-text">把xxxx单位去掉的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WPS-Office简单去广告方法"><span class="nav-number">3.0.2.</span> <span class="nav-text">WPS Office简单去广告方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KEY"><span class="nav-number">3.0.3.</span> <span class="nav-text">KEY</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">鄙人梁某</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

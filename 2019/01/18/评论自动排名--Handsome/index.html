@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="评论,自动排名,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言这两天逛博客发现一个挺好玩的功能 就是当你评论后 排名会显示到第一位 感觉挺有意思的 然后翻文章 爬搜索引擎 最后知道实现的原理是什么了 效果 实现方法[scode type=”yellow”]需为Handsome主题[/scode] 1.将以下代码插入到functions.php内 1234567891011121314151617181920212223242526272829functi">
+<meta name="keywords" content="评论,自动排名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="评论自动排名--Handsome">
+<meta property="og:url" content="https://5sir.github.io/2019/01/18/评论自动排名--Handsome/index.html">
+<meta property="og:site_name" content="鄙人梁某">
+<meta property="og:description" content="前言这两天逛博客发现一个挺好玩的功能 就是当你评论后 排名会显示到第一位 感觉挺有意思的 然后翻文章 爬搜索引擎 最后知道实现的原理是什么了 效果 实现方法[scode type=”yellow”]需为Handsome主题[/scode] 1.将以下代码插入到functions.php内 1234567891011121314151617181920212223242526272829functi">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/HTB18s_3UkzoK1RjSZFlq6yi4VXaw.jpg">
+<meta property="og:updated_time" content="2019-05-05T13:59:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="评论自动排名--Handsome">
+<meta name="twitter:description" content="前言这两天逛博客发现一个挺好玩的功能 就是当你评论后 排名会显示到第一位 感觉挺有意思的 然后翻文章 爬搜索引擎 最后知道实现的原理是什么了 效果 实现方法[scode type=”yellow”]需为Handsome主题[/scode] 1.将以下代码插入到functions.php内 1234567891011121314151617181920212223242526272829functi">
+<meta name="twitter:image" content="https://ae01.alicdn.com/kf/HTB18s_3UkzoK1RjSZFlq6yi4VXaw.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://5sir.github.io/2019/01/18/评论自动排名--Handsome/">
+
+
+
+
+
+  <title>评论自动排名--Handsome | 鄙人梁某</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鄙人梁某</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">即使从梦中醒来，还会有回忆留下。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://5sir.github.io/2019/01/18/评论自动排名--Handsome/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鄙人梁某">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鄙人梁某">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">评论自动排名--Handsome</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-18T18:19:00+08:00">
+                2019-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/资源技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">资源技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这两天逛博客发现一个挺好玩的功能 就是当你评论后 排名会显示到第一位 感觉挺有意思的 然后翻文章 爬搜索引擎 最后知道实现的原理是什么了</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://ae01.alicdn.com/kf/HTB18s_3UkzoK1RjSZFlq6yi4VXaw.jpg" alt></p>
+<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><p>[scode type=”yellow”]需为Handsome主题[/scode]</p>
+<p>1.将以下代码插入到functions.php内</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Autofirst</span><span class="params">()</span></span>&#123;</span><br><span class="line">    $db = Typecho_Db::get();</span><br><span class="line">    $query = $db-&gt;select()-&gt;from(<span class="string">'table.comments'</span>)-&gt;where(<span class="string">'authorId = ?'</span>,<span class="string">'0'</span>)-&gt;order(<span class="string">'coid'</span>,Typecho_Db::SORT_DESC)-&gt;limit(<span class="number">100</span>);</span><br><span class="line">    $result = $db-&gt;fetchAll($query);</span><br><span class="line">    $arrUrl = <span class="keyword">array</span>();</span><br><span class="line">    $arrAuthor = <span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">foreach</span> ($result <span class="keyword">as</span> $value) &#123;</span><br><span class="line">        <span class="keyword">if</span>($value[<span class="string">"url"</span>]!==<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($arrUrl,$value[<span class="string">"url"</span>]);</span><br><span class="line">            array_push($arrAuthor,$value[<span class="string">"author"</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    $su=array_filter(array_merge(array_unique($arrUrl)));</span><br><span class="line">    $sa=array_filter(array_merge(array_unique($arrAuthor)));</span><br><span class="line">    $num=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count(array_unique($su));$i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>($su[$i]!==<span class="string">""</span> &amp;&amp; $num&lt;<span class="number">8</span>)&#123;</span><br><span class="line">            $num+=<span class="number">1</span>;</span><br><span class="line">            $db1 = Typecho_Db::get();</span><br><span class="line">            $query1 = $db1-&gt;select()-&gt;from(<span class="string">'table.comments'</span>)-&gt;where(<span class="string">'url = ?'</span>,$su[$i])-&gt;order(<span class="string">'coid'</span>,Typecho_Db::SORT_DESC)-&gt;limit(<span class="number">100</span>);</span><br><span class="line">            $result1 = $db1-&gt;fetchAll($query1);</span><br><span class="line">            $arrAuthor1 = <span class="keyword">array</span>();</span><br><span class="line">            <span class="keyword">foreach</span> ($result1 <span class="keyword">as</span> $value) &#123;</span><br><span class="line">                    array_push($arrAuthor1,$value[<span class="string">"author"</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'&lt;div class="col-lg-3 col-md-3 item"&gt;&lt;a href="'</span>.$su[$i].<span class="string">'" rel="external nofollow" class="btn btn-default btn-block overflow" target="_blank"&gt;'</span>.$arrAuthor1[<span class="number">0</span>].<span class="string">'&lt;/a&gt;&lt;/div&gt;'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以通过修改上述代码的num&lt;8来调整显示最新评论者的数量，以4的倍数为宜。</p>
+<p>2.将以下代码插入到index.php的<code>&lt;div class=&quot;wrapper-md&quot; id=&quot;post-panel&quot;&gt;</code> 下面，这样会有更加适配的显示效果</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="row visible-lg visible-md"&gt;</span><br><span class="line">&lt;div class="col-lg-12"&gt;</span><br><span class="line">&lt;div class="panel panel-default ggg"&gt;</span><br><span class="line">    &lt;div class="panel-heading"&gt;</span><br><span class="line">        &lt;i class="glyphicon glyphicon-th"&gt;&lt;/i&gt; 您的每次评论都将会展示在本博客首页导航栏第一位</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class="panel-body row autofirst1"&gt;</span><br><span class="line">        <span class="meta">&lt;?php</span> Autofirst(<span class="number">100</span>) <span class="meta">?&gt;</span></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>3.将以下代码添加至后台–Handsome主题设置–自定义CSS内。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.autofirst1</span> <span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">5px</span> <span class="number">10px</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="selector-class">.item</span> <span class="selector-tag">a</span>&#123;<span class="attribute">border-radius</span>:<span class="number">10px</span>&#125;</span><br><span class="line"><span class="selector-class">.overflow</span>&#123;</span><br><span class="line">    <span class="attribute">overflow</span>:hidden;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">    <span class="attribute">word-wrap</span>: normal;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="selector-class">.autofirst1</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">20px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参阅：<a href="https://www.imydl.tech/status/580.html" title="运维学习笔记博客" target="_blank" rel="noopener">运维学习笔记博客</a></p>
+<p>[scode type=”yellow”]主题更新至V5.1.1之后，效果下方会出现一段横线 修复方案请看下方[/scode]</p>
+<h2 id="Bug修复"><a href="#Bug修复" class="headerlink" title="Bug修复"></a>Bug修复</h2><p>替换<code>/usr/themes/handsome/assets/css/features/newblack.min.css</code>文件内容为下方代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#777</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.text-muted</span> &#123;</span><br><span class="line">	#color:#a0a0a0</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.page-navigator</span>&gt;<span class="selector-class">.current</span>&gt;<span class="selector-tag">a</span>,<span class="selector-class">.page-navigator</span>&gt;<span class="selector-class">.current</span>&gt;<span class="selector-tag">a</span><span class="selector-pseudo">:focus</span>,<span class="selector-class">.page-navigator</span>&gt;<span class="selector-class">.current</span>&gt;<span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>,<span class="selector-class">.page-navigator</span>&gt;<span class="selector-class">.current</span>&gt;<span class="selector-tag">span</span>,<span class="selector-class">.page-navigator</span>&gt;<span class="selector-class">.current</span>&gt;<span class="selector-tag">span</span><span class="selector-pseudo">:focus</span>,<span class="selector-class">.page-navigator</span>&gt;<span class="selector-class">.current</span>&gt;<span class="selector-tag">span</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">	<span class="attribute">z-index</span>:<span class="number">3</span>;</span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#fff</span>;</span><br><span class="line">	<span class="attribute">cursor</span>:default;</span><br><span class="line">	<span class="attribute">background-color</span>:<span class="number">#111</span>;</span><br><span class="line">	<span class="attribute">border-color</span>:<span class="number">#111</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.page-navigator</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">a</span>,<span class="selector-class">.page-navigator</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">span</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>:relative;</span><br><span class="line">	<span class="attribute">float</span>:left;</span><br><span class="line">	<span class="attribute">padding</span>:<span class="number">6px</span> <span class="number">12px</span>;</span><br><span class="line">	<span class="attribute">margin-left</span>:-<span class="number">1px</span>;</span><br><span class="line">	<span class="attribute">line-height</span>:<span class="number">1.42857143</span>;</span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#111</span>;</span><br><span class="line">	<span class="attribute">text-decoration</span>:none;</span><br><span class="line">	<span class="attribute">background-color</span>:<span class="number">#fff</span>;</span><br><span class="line">	<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#ddd</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.page-navigator</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">a</span><span class="selector-pseudo">:focus</span>,<span class="selector-class">.page-navigator</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>,<span class="selector-class">.page-navigator</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">span</span><span class="selector-pseudo">:focus</span>,<span class="selector-class">.page-navigator</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">span</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">	<span class="attribute">z-index</span>:<span class="number">2</span>;</span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#111</span>;</span><br><span class="line">	<span class="attribute">background-color</span>:<span class="number">#eee</span>;</span><br><span class="line">	<span class="attribute">border-color</span>:<span class="number">#ddd</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.bg-white</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#777</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav-tabs-alt</span> <span class="selector-class">.nav-tabs</span>&gt;<span class="selector-tag">li</span><span class="selector-class">.active</span>&gt;<span class="selector-tag">a</span> &#123;</span><br><span class="line">	<span class="attribute">border-bottom-color</span>:<span class="number">#000</span><span class="meta">!important</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel-body</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#222</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel-body</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#58666e</span>;</span><br><span class="line">	<span class="attribute">word-wrap</span>:break-word;</span><br><span class="line">	<span class="attribute">word-break</span>:break-all</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.bg-black</span> <span class="selector-class">.nav</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">a</span><span class="selector-pseudo">:focus</span> &#123;</span><br><span class="line">	<span class="attribute">background-color</span>:<span class="number">#000</span>;</span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#fff</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/评论/" rel="tag"># 评论</a>
+          
+            <a href="/tags/自动排名/" rel="tag"># 自动排名</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/16/Office-2019-KMS-激活器旗舰版汉化版/" rel="next" title="Office 2019 KMS 激活器旗舰版汉化版">
+                <i class="fa fa-chevron-left"></i> Office 2019 KMS 激活器旗舰版汉化版
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/18/WPS政府版/" rel="prev" title="WPS政府版">
+                WPS政府版 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="鄙人梁某">
+            
+              <p class="site-author-name" itemprop="name">鄙人梁某</p>
+              <p class="site-description motion-element" itemprop="description">即使从梦中醒来，还会有回忆留下。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果"><span class="nav-number">2.</span> <span class="nav-text">效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方法"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug修复"><span class="nav-number">4.</span> <span class="nav-text">Bug修复</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">鄙人梁某</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
